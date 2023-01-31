@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": "ABX 1234",
+      "name": "Toyota",
+      "model": "Hillux",
+      "color": "white",
+      "year": "2022"
+    },
+    {
+      "ID": "ABX1234",
+      "NAME": "Toyota",
+      "MODEL": "Hillux",
+      "COLOR": "white",
+      "YEAR": "2022",
+      "id": "6Df76wL"
+    },
+    {
+      "ID": "ABX1234",
+      "NAME": "Toyota",
+      "MODEL": "Hillux",
+      "COLOR": "white",
+      "YEAR": "2022",
+      "id": "MTG0TYp"
+    }
+  ]
+}
