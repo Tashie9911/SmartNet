@@ -1,118 +1,74 @@
-import React from 'react';
-import { CardImg, Button, Row, Col, Table } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect,useState } from 'react';
 
+import {Table,TableHead,TableBody,TableRow,TableCell,styled,Button} from '@mui/material';
 
-const Car = ({car}) => {
+import {getusers} from '../service/api';
+import {Link} from 'react-router-dom';
 
-  return (
-    <div>
-      <Row>
-        <Col md="12">
-          <div className="card border-secondary mb-3">
-            <div className="card-header text-success">
-              <h4>
-                <Link to={`/cars/${car.id}`}>
-                  {car.year} {car.make} {car.model} {car.trim}
-                </Link>
-              </h4>
-            </div>
-            <div className="card-body">
-              <Row>
-                <Col md="5">
-                  <CardImg className="carlist-margin" top width="100%" src={car.link} alt={car.make} />
-                </Col>
-                <Col md="4">
-                  <Table className="striped">
-                    <tbody>
-                    <tr>
-                      <td>Engine:</td>
-                      <td>{car.engine}</td>
-                    </tr>
-                    <tr>
-                      <td>Drive Type:</td>
-                      <td>{car.drive_type}</td>
-                    </tr>
-                    <tr>
-                      <td>Body:</td>
-                      <td>{car.body_type}</td>
-                    </tr>
-                    <tr>
-                      <td>Exterior Color:</td>
-                      <td>{car.ext_color}</td>
-                    </tr>
-                    <tr>
-                      <td>Interior Color:</td>
-                      <td>{car.int_color}</td>
-                    </tr>
-                    <tr>
-                      <td>Transmission:</td>
-                      <td>{car.transmission}</td>
-                    </tr>
-                    <tr>
-                      <td>Features:</td>
-                      <td>{car.features}</td>
-                    </tr>
-                  </tbody>
-                  </Table>
-                </Col>
-                <Col md="3">
-                  <Table className="striped">
-                    <tbody>
-                      <tr>
-                        <td className="text-primary text-right">
-                          <strong>
-                            MSRP:
-                          </strong>
-                          </td>
-                        <td className="text-primary text-right">
-                          <strong>
-                            ${car.price}
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-danger text-right">Dealer Discount:</td>
-                        <td className="text-danger text-right">{car.sale}%</td>
-                      </tr>
-                      <tr>
-                        <td className="text-primary text-right">
-                          <strong>
-                            Total:
-                          </strong>
-                        </td>
-                        <td className="text-primary text-right">
-                          <strong>
-                            ${car.price-car.price*car.sale/100}
-                          </strong>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-primary text-right">asset. instalments:</td>
-                        <td className="text-primary text-right">$200/m*</td>
-                      </tr>
-                      <tr>
-                        <td className="text-primary text-right">asset. instalments:</td>
-                        <td className="text-primary text-right">$300/m*</td>
-                      </tr>
-                      <tr>
-                        <td className="text-right"></td>
-                        <td className="text-right">
-                          <Link to={`/cars/${car.id}`}>
-                          <Button className="btn btn-success">More</Button>
-                        </Link>
-                        </td>
-                      </tr>
-                  </tbody>
-                  </Table>
-                </Col>
-              </Row>
-            </div>
-          </div>
-        </Col>
-      </Row>
-    </div>
-  );
-};
+const StyledTable = styled(Table)`
+      width: 90%;
+      margin: 50px auto 0 auto;
 
-export default Car;
+`;
+const Thead = styled(TableRow)`
+     background: #000;
+     & > th{
+      color:#fff;
+      font-size:20px
+     }
+`
+
+const Tbody = styled(TableRow)`
+     & > td{
+      font-size:20px
+     }
+`
+
+const Cars = () => {
+
+  const [users,setusers] = useState([]);
+
+  useEffect(() =>{
+     getusersdetails();
+  },  [])
+
+  const getusersdetails = async () => {
+    let response = await getusers();
+    console.log(response);
+    setusers(response.data);
+  }
+
+    return (
+       <StyledTable>
+        <TableHead>
+             <Thead>
+               <TableCell>ID</TableCell>
+               <TableCell>NAME</TableCell>
+               <TableCell>MODEL</TableCell>
+               <TableCell>COLOR</TableCell>
+               <TableCell>YEAR</TableCell>
+               <TableCell></TableCell>
+              </Thead>
+            </TableHead>
+            <TableBody>
+              {
+                users.map((user, id) => (
+                     <Tbody key={id}>
+                        <TableCell>{user.ID}</TableCell>
+                        <TableCell>{user.NAME}</TableCell>
+                        <TableCell>{user.MODEL}</TableCell>
+                        <TableCell>{user.COLOR}</TableCell>
+                        <TableCell>{user.YEAR}</TableCell>
+                        <TableCell>
+                          <Button variant ="contained"style={{marginRight: 10}} component={Link} to = {'/edit/$'}>EDIT</Button>
+                          <Button variant ="contained" color="secondary">DELETE</Button>
+                        </TableCell>
+                     </Tbody>
+                ))
+              }
+            </TableBody>
+       </StyledTable>
+    )
+}
+
+export default Cars;

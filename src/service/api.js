@@ -11,10 +11,27 @@ export const addcar = async (data) => {
     }
 }
 
-export const getuser = async () => {
+export const getusers = async () => {
     try {
           return await axios.get(API_URL);
     } catch (error) {
         console.log('Error while calling getusers api', error.message);
+    }
+}
+
+
+export const getuser = async (data) => {
+    try {
+          return await axios.get(API_URL);
+    } catch (error) {
+        console.log('Error while calling getusers api', error.message);
+    }
+}
+
+export const getUser = async (data) => {
+    try {
+          return await axios.get('$(API_URL)/${data}');
+    } catch (error) {
+        console.log('Error while calling getuser api', error.message);
     }
 }
