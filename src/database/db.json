@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "NAME": "Tashinga",
+      "SURNAME": "Mashanga",
+      "USERNAME": "Tashie",
+      "EMAIL": "tashingamashanga@gmail",
+      "PASSWORD": "tashing1940",
+      "PHONE": "0782814531"
+    },
+    {
+      "NAME": "McDonald",
+      "SURNAME": "Kachidza",
+      "USERNAME": "Macky",
+      "EMAIL": "mcdape@gmail",
+      "PASSWORD": "macky23",
+      "PHONE": "0777759953",
+      "id": "6Df76wL"
+    },
+    {
+      "NAME": "Leroy",
+      "SURNAME": "Mutezo",
+      "USERNAME": "Lee",
+      "EMAIL": "lee@gmail",
+      "PASSWORD": "lee2022",
+      "PHONE": "0715905306",
+      "id": "MTG0TYp"
+    },
+    {
+      "NAME": "Cloudious",
+      "SURNAME": "Zenda",
+      "USERNAME": "Clou",
+      "EMAIL": "clou@gmail",
+      "PASSWORD": "zenda1999",
+      "PHONE": "0774767474",
+      "id": "c7tBx_M"
+    },
+    {
+      "NAME": "Tapiwa",
+      "SURNAME": "Makoni",
+      "USERNAME": "Taps",
+      "EMAIL": "taps@gmail",
+      "PASSWORD": "Taa0000",
+      "PHONE": "0719699513",
+      "id": "vvBxm6V"
+    },
+    {
+      "NAME": "Diego",
+      "SURNAME": "Elsandro",
+      "USERNAME": "diego",
+      "EMAIL": "diego@gmail",
+      "PASSWORD": "Dee07",
+      "PHONE": "0777723456",
+      "id": "I0vLio5"
+    },
+    {
+      "NAME": "Kimberly",
+      "SURNAME": "Nyasango",
+      "USERNAME": "Kim",
+      "EMAIL": "diego@gmail",
+      "PASSWORD": "kim2000",
+      "PHONE": "0777723456",
+      "id": "3IQEKCa"
+    }
+  ]
+}
