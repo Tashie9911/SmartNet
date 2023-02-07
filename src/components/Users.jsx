@@ -11,10 +11,10 @@ const StyledTable = styled(Table)`
 
 `;
 const Thead = styled(TableRow)`
-     background: #000;
+     background: #;
      & > th{
-      color:#fff;
-      font-size:20px
+      color:#;
+      font-size:30px
      }
 `
 
@@ -24,7 +24,7 @@ const Tbody = styled(TableRow)`
      }
 `
 
-const Cars = () => {
+const Users = () => {
 
   const [users,setusers] = useState([]);
 
@@ -42,11 +42,12 @@ const Cars = () => {
        <StyledTable>
         <TableHead>
              <Thead>
-               <TableCell>ID</TableCell>
                <TableCell>NAME</TableCell>
-               <TableCell>MODEL</TableCell>
-               <TableCell>COLOR</TableCell>
-               <TableCell>YEAR</TableCell>
+               <TableCell>SURNAME</TableCell>
+               <TableCell>USERNAME</TableCell>
+               <TableCell>EMAIL</TableCell>
+               <TableCell>PASSWORD</TableCell>
+               <TableCell>PHONE</TableCell>
                <TableCell></TableCell>
               </Thead>
             </TableHead>
@@ -54,11 +55,12 @@ const Cars = () => {
               {
                 users.map((user, id) => (
                      <Tbody key={id}>
-                        <TableCell>{user.ID}</TableCell>
                         <TableCell>{user.NAME}</TableCell>
-                        <TableCell>{user.MODEL}</TableCell>
-                        <TableCell>{user.COLOR}</TableCell>
-                        <TableCell>{user.YEAR}</TableCell>
+                        <TableCell>{user.SURNAME}</TableCell>
+                        <TableCell>{user.USERNAME}</TableCell>
+                        <TableCell>{user.EMAIL}</TableCell>
+                        <TableCell>{user.PASSWORD}</TableCell>
+                        <TableCell>{user.PHONE}</TableCell>
                         <TableCell>
                           <Button variant ="contained"style={{marginRight: 10}} component={Link} to = {'/edit/$'}>EDIT</Button>
                           <Button variant ="contained" color="secondary">DELETE</Button>
@@ -71,4 +73,4 @@ const Cars = () => {
     )
 }
 
-export default Cars;
+export default Users;
